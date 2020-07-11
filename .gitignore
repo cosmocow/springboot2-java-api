@@ -25,16 +25,22 @@ hs_err_pid*
 .idea
 api-base.iml
 
-api/api-application\.iml
-server/server\.iml
 
 # Ignore Maven Target Directories
 api/target/
+application-common/target/
+datasource/target/
 server/target/
 
 api/src/main/resources/application-ekalosha\.properties
+/tmp/*
+/ignite/
+
+api/api-application\.iml
+server/server\.iml
 api/api-core.iml
 server/server-core\.iml
 server-applications\.iml
-/tmp/*
-/ignite/
+/datasource/datasource.iml
+/application-common/application-common.iml
+/api/api.iml
