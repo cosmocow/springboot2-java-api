@@ -47,7 +47,7 @@ public class OrganizationEditDTO extends DTOBase<Organizations> {
 	@ApiModelProperty(position = 14)
 	private String streetAddress2;
 
-	@ApiModelProperty(position = 16, dataType = "com.cyberintech.vrisk.server.model.dto.ItemViewDTO", example = "{\"id\": 229}")
+	@ApiModelProperty(position = 16, example = "{\"id\": 229}")
 	private ItemViewDTO<Country> country;
 
 	@ApiModelProperty(position = 18, example = "{\"id\": 4006}")

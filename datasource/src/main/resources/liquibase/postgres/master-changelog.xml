@@ -4,6 +4,14 @@
 	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-<!--	<include file="classpath:liquibase/postgres/0001.users_and_roles.xml" relativeToChangelogFile="false" />-->
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000.initialize_database.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-01.continents_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-02.countries_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-03.states_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-04.cities_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-05.languages_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-06.currencies_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0000-07.initialize_database_data.xml" relativeToChangelogFile="false" />
+	<include file="classpath:liquibase/postgres/v-0.1.1/0001.audit_logs.xml" relativeToChangelogFile="false" />
 
 </databaseChangeLog>

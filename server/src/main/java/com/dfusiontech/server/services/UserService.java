@@ -174,7 +174,7 @@ public class UserService {
 
 		Users itemDetails = getUser(itemId);
 
-		if (!organizationService.getCurrentOrganizationId().equals(itemDetails.getOrganization().getId())) {
+		if (organizationService.getCurrentOrganizationId() != null && !organizationService.getCurrentOrganizationId().equals(itemDetails.getOrganization().getId())) {
 			throw new BadRequestException(MessageFormat.format("User is not belongs to the current Organization.", organizationService.getCurrentOrganizationId()), ApplicationExceptionCodes.USER_NOT_BELONGS_TO_CURRENT_ORGANIZATION);
 		}
 

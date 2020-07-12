@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+
+	<changeSet id="0000-07.initialize_database_data" author="Eugene A. Kalosha &lt;ekalosha@dfusiontech.com&gt;">
+
+		<sql>
+
+			INSERT INTO status (id, status) VALUES (1, 'Active'), (2, 'On Hold'), (4, 'Planning'), (8, 'Complete');
+
+			INSERT INTO organizations (id, name, description, country_id, site, currency_id, language_id, status_id) VALUES
+			(1, 'dFusion Tech, Inc.', 'Computer Software Organization', 229, 'http://www.dfusiontech.com', 2, 18, 1);
+			ALTER SEQUENCE organizations_id_seq RESTART WITH 1024;
+
+			INSERT INTO users (id, first_name, last_name, email, password) VALUES (1, 'Super', 'Administrator', 'admin@email.com', '$2a$10$jfGpG/nQzkQ6VY2vk06OeOlw8C1qCEcnIFJvc6hlxn1jSJGhp56Ba');
+			INSERT INTO users (id, first_name, last_name, email, password) VALUES (2, 'Initial', 'User', 'user@email.com', '$2a$10$jfGpG/nQzkQ6VY2vk06OeOlw8C1qCEcnIFJvc6hlxn1jSJGhp56Ba');
+			ALTER SEQUENCE users_id_seq RESTART WITH 65536;
+
+			INSERT INTO roles (id, name, description) VALUES (1, 'ADMIN', 'System Administrators');
+			INSERT INTO roles (id, name, description) VALUES (2, 'ANONYMOUS', 'Anonymous users');
+			INSERT INTO roles (id, name, description) VALUES (4, 'USER', 'Users of the system');
+			ALTER SEQUENCE roles_id_seq RESTART WITH 16;
+
+			INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);
+			INSERT INTO user_roles (user_id, role_id) VALUES (1, 4);
+			INSERT INTO user_roles (user_id, role_id) VALUES (2, 4);
+			ALTER SEQUENCE user_roles_id_seq RESTART WITH 1024;
+
+			INSERT INTO supported_languages (id, iso_code, locale, name, charset, is_public) VALUES (1, 'eng', 'en_US', 'English', NULL, true);
+			INSERT INTO supported_languages (id, iso_code, locale, name, charset, is_public) VALUES (2, 'esp', 'es', 'Español', NULL, true);
+			ALTER SEQUENCE supported_languages_id_seq RESTART WITH 3;
+
+		</sql>
+
+		<rollback>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>
